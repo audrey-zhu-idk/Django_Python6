@@ -24,4 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page),
     path('about/', about_page),
+    path('contact/',contact_page),
+    path('example/',example),
+    path('intro/'project_page)
 ] # admin file is for logining in as a super user
