@@ -7,18 +7,19 @@ from django.template.loader import get_template
 def home_page(request):
     my_title = "My Home Page"
 #     return HttpResponse("<h1>My Home Page</h1>")
-    return render(request,"home_page.html",{"h1":my_title}, "title":"HOME", "button_text":"Home Button") 
+    context = {"h1":my_title, "title":"HOME", "button_text":"Home Button", "my_list":[1, 2, 3, 4, 5]}
+    return render(request,"home_page.html", context)
     # I want to replace the "title" in curly brackets to the variable my_title
     # Second parameter replacement for "title" replaces the tab name (the name that you see beside the icon)
 
 def about_page(request):
 #     return HttpResponse("<h1>Welcome to About Page</h1>")
-    return render(request,"about_page.html",{"h1":"About us"}, "title":"ABOUT")
+    return render(request,"about_page.html",{"h1":"About us", "title":"ABOUT"})
     # "h1" means a variable- looking for that title name that defines tab name in home_page.html
 
 def contact_page(request):
 #     return HttpResponse("<h1>Contact us</h1>")
-    return render(request,"contact_page.html",{"h1":"Contact us"}, "title":"CONTACT")
+    return render(request,"contact_page.html",{"h1":"Contact us", "title":"CONTACT"})
 
 def example(request):
     # the code below is the same thing as doing: return render(request,"contact_page.html",{"h1":"Contact us"}, "title":"CONTACT")
@@ -26,7 +27,7 @@ def example(request):
     # template_name = "Strings-Example.txt"
     # rendered_strings = get_template(template_name).render(context)
     # return HttpResponse(rendered_item)
-    return render(request,"home_page.html",{"h1":"Example"}, "title":"HOME")
+    return render(request,"home_page.html",{"h1":"Example", "title":"HOME"})
 
 def project_page(request):
-    return render(request,"project_page.html",{"h1":"Project Intro"}, "title":"INTRO")
+    return render(request,"project_page.html",{"h1":"Project Intro", "title":"INTRO"})

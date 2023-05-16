@@ -15,16 +15,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-# . meaning I want to import the views.py file in my current file 
+
+from blog.views import (
+    blog_post_detail_page,
+)
+
+from Project.views import (
+    project_post_detail_page,
+)
+
+# . meaning I want to import the views.py file in my current file
 from .views import (
     home_page,
-    about_page
+    about_page,
+    contact_page,
+    example,
+    project_page,
 )
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page),
     path('about/', about_page),
     path('contact/',contact_page),
     path('example/',example),
-    path('intro/'project_page)
+    path('intro/',project_page),
+    path('project', project_post_detail_page),
 ] # admin file is for logining in as a super user
